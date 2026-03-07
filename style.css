@@ -1,0 +1,4 @@
+/* Smooth scroll animation for navbar links */
+html {
+  scroll-behavior: smooth;
+}
