@@ -8,3 +8,50 @@
 html {
   scroll-behavior: smooth;
 }
+
+
+/* Step animation */
+.step {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.step.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Timeline line animation */
+.timeline-line {
+  background: linear-gradient(to bottom, #3b82f6, #22c55e);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.5s ease;
+}
+
+.timeline-line.active {
+  transform: scaleY(1);
+}
+
+/* Step circle animation */
+.step-circle {
+  transition: all 0.4s ease;
+}
+
+.step.show .step-circle {
+  background: #22c55e;
+  transform: scale(1.2);
+}
+.timeline-line{
+width:4px;
+background:linear-gradient(to bottom,#3b82f6,#22c55e);
+height:100%;
+transform:scaleY(0);
+transform-origin:top;
+transition:transform 1s ease;
+}
+
+.timeline-line.active{
+transform:scaleY(1);
+}
