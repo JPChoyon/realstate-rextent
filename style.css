@@ -1,3 +1,9 @@
+/* Define CSS variables for light mode */
+:root[data-theme="light"] {
+  --bg-color: #fff;
+  --text-color: #000;
+}
+
 /* Smooth scroll animation for navbar links */
 html {
   scroll-behavior: smooth;
