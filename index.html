@@ -79,22 +79,22 @@
   </div>
 
   <!-- feature section  -->
-  <div class="px-4  py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+  <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
     <div class="grid row-gap-8 sm:grid-cols-3 gap-10">
 
       <div class="text-center">
-        <h6 class="text-5xl font-bold text-blue-600 counter" data-target="144000">0</h6>
-        <p class="font-bold">Downloads</p>
+        <h6 class="text-5xl font-bold text-blue-600 animate-text">Hours</h6>
+        <p class="font-bold">To Close, Not Months</p>
       </div>
 
       <div class="text-center">
-        <h6 class="text-5xl font-bold text-blue-600 counter" data-target="12900">0</h6>
-        <p class="font-bold">Subscribers</p>
+        <h6 class="text-5xl font-bold text-blue-600 animate-text">70%</h6>
+        <p class="font-bold">LTV Consistently</p>
       </div>
 
       <div class="text-center">
-        <h6 class="text-5xl font-bold text-blue-600 counter" data-target="27300">0</h6>
-        <p class="font-bold">Users</p>
+        <h6 class="text-5xl font-bold text-blue-600 animate-text">Entities</h6>
+        <p class="font-bold">Not Individuals</p>
       </div>
 
     </div>
@@ -875,16 +875,17 @@
       </h1>
 
       <p class="max-w-2xl mx-auto mt-6 text-center text-gray-500 dark:text-gray-300">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt ex placeat modi magni quia error
-        alias, adipisci rem similique, at omnis eligendi optio eos harum.
+        “Their attention to detail and commitment to clients is outstanding. I highly recommend them to anyone looking
+        to buy or
+        sell real estate.”
       </p>
 
       <section class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 lg:grid-cols-2 xl:grid-cols-3">
         <div class="p-8 border rounded-lg dark:border-gray-700">
           <p class="leading-loose text-gray-500 dark:text-gray-400">
-            “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore quibusdam ducimus libero ad
-            tempora doloribus expedita laborum saepe voluptas perferendis delectus assumenda rerum, culpa
-            aperiam dolorum, obcaecati corrupti aspernatur a.”.
+            “I was impressed by their market knowledge and quick response. They helped me sell my property faster than
+            expected and
+            at a great price.”
           </p>
 
           <div class="flex items-center mt-8 -mx-2">
@@ -901,9 +902,9 @@
 
         <div class="p-8 border rounded-lg dark:border-gray-700">
           <p class="leading-loose text-gray-500 dark:text-gray-400">
-            “Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore quibusdam ducimus libero ad
-            tempora doloribus expedita laborum saepe voluptas perferendis delectus assumenda rerum, culpa
-            aperiam dolorum, obcaecati corrupti aspernatur a.”.
+            “Working with this team made the entire home buying process smooth and stress-free. They helped us find the
+            perfect
+            property and handled everything professionally from start to finish.”
           </p>
 
           <div class="flex items-center mt-8 -mx-2">
@@ -1014,25 +1015,22 @@
 </body>
 
 <script>
-  const counters = document.querySelectorAll(".counter");
+  document.querySelectorAll('.animate-text').forEach(el => {
+    const text = el.innerText;
+    el.innerHTML = '';
 
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute("data-target");
-      const count = +counter.innerText;
+    text.split('').forEach((letter, i) => {
+      const span = document.createElement('span');
+      span.innerText = letter;
+      span.style.opacity = 0;
+      span.style.transition = "opacity 0.5s ease";
 
-      const speed = 1000;
-      const increment = target / speed;
+      el.appendChild(span);
 
-      if (count < target) {
-        counter.innerText = Math.ceil(count + increment);
-        setTimeout(updateCount, 2);
-      } else {
-        counter.innerText = target.toLocaleString();
-      }
-    };
-
-    updateCount();
+      setTimeout(() => {
+        span.style.opacity = 1;
+      }, i * 100);
+    });
   });
 
   const steps = document.querySelectorAll(".step");
